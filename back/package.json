@@ -11,6 +11,7 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "back": "file:"
+    "back": "file:",
+    "express": "^4.21.2"
   }
 }
