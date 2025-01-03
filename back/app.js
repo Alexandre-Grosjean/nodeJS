@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const mongodb = require('mongodb');
 
-mongoose.connect('mongodb+srv://AlexandreGrosjean:a7r68SCTrIsYltZS@cluster0.b2khq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+mongoose.connect('mongodb+srv://AlexandreGrosjean:<password.in.gitignore@cluster0.b2khq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
     )
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch(() => console.log('Connexion à MongoDB échouée !'));
