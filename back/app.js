@@ -1,5 +1,5 @@
 const express = require('express');
-
+const Thing = require('./models/thing');
 const app = express();
 const mongoose = require('mongoose');
 const mongodb = require('mongodb');
@@ -20,10 +20,13 @@ app.use((req, res, next) => {
   });
 
 app.post('/api/stuff', (req, res, next) => {
-    console.log(req.body);
-    res.status(201).json({
-        message: 'objet créé !'
+    delete req.body._id;
+    const thing = new Thing({
+      ...req.body
     });
+    thing.save()
+    .then(() =>res.status(201).json({ message: 'objet enregistré !'}))
+    .catch(error => res.status(400).json({ error }));
 });
 
 app.get('/api/stuff', (req, res, next) => {
